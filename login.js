@@ -89,7 +89,51 @@ function signIn(username, password) {
   } else {
     alert("Uuups, usuario o contraseña incorrectos!");
   }
-}*/
+}*
+promesas 
+estados pending inicia
+        fullfilled termina
+        rejected falla
 
-const titulo = document.getElementById("titulo");
-const subtitulo = document.getElementById("subtitulo");
+  callbacks 
+  resolve
+  reject
+*
+const foo = () => console.log("First");
+const bar = () => setTimeout(() => console.log("Second"), 500);
+const baz = () => console.log("Third");
+
+bar();
+foo();
+baz();
+*
+
+const promise = new Promise((resolve, reject) => {
+  setTimeout(() => {
+    let operationSuccessful = true;
+    if (operationSuccessful) {
+      resolve("La operación fue exitosa!");
+    } else {
+      reject("Falló la operación");
+    }
+  }, 2000);
+});
+
+promise
+  .then((message) => {
+    console.log(successMessage);
+  })
+  .catch((errorMessage) => {
+    console.log(errorMessage);
+  });*/
+
+function fetchdata(){
+  fetch("https://jsonplaceholder.typicode.com/posts")
+    .then(response => response.json())
+    .then(data => {
+      console.log(data);
+    })
+    .catch((error) => {
+      console.log("hubo un error");
+    });
+}
