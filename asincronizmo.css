@@ -1,5 +1,5 @@
 
-    body {
+    /*body {
       font-family: sans-serif;
       margin: 0;
       padding: 10%;
@@ -42,7 +42,7 @@
       padding: 0;
       display: grid;
       grid-template-columns: repeat(1, 1fr);
-      /* Por defecto, una columna */
+      /* Por defecto, una columna *
       gap: 1rem;
     }
 
@@ -80,21 +80,71 @@
 
     @media (min-width: 600px) {
 
-      /* Tablet */
+      /* Tablet 
       .posts {
         grid-template-columns: repeat(2, 1fr);
-        /* Dos columnas en tabletas */
+        /* Dos columnas en tabletas 
       }
     }
 
     @media (min-width: 900px) {
 
-      /* Desktop */
+      /* Desktop *
       .posts {
         grid-template-columns: repeat(3, 1fr);
-        /* Tres columnas en escritorios */
+        /* Tres columnas en escritorios 
         }
-    }
+    }*/
+
+
+const listElement = document.querySelector(".posts");
+const postTemplate = document.getElementById("single-post");
+const form = document.querySelector("#new-post form");
+const fetchButton = document.querySelector("#available-posts button");
+const postList = document.querySelector("#posts-container");
+function sendHTTPRequest(method, url, data) {
+  return fetch(url, {
+    method: method,
+    body: JSON.stringify(data),
+    headers: {
+      "Content-Type": "application/json",
+    },
+  }).then((response) => {
+    return response.json();
+  });
+}
+
+async function fecthPosts() {
+  const responseData = await sendHTTPRequest(
+    "GET",
+    "https://jsonplaceholder.typicode.com/posts"
+  );
+  console.log(responseData);
+  const listOfPosts = responseData;
+
+  for (const post of listOfPosts) {
+    const postContainer = document.createElement("article");
+    postContainer.id = post.id;
+    postContainer.classList.add("post-item");
+
+    const title = document.createElement("h2");
+    title.textContent = post.title;
+
+    const body = document.createElement("p");
+    body.textContent = post.body;
+    const button = document.createElement("button");
+
+    
+    button.textContent = "DELETE Content";
+    postContainer.append(title);
+    postContainer.append(body);
+    postContainer.append(button);
+
+    listElement.append(postContainer);
+  }
+}
+
+fetchButton.addEventListener("click", fecthPosts);
 
 
 
