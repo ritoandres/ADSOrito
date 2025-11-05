@@ -276,6 +276,9 @@ function iniciarJuego() {
     let botonMascotaJugador = document.getElementById('boton-mascota');
     botonMascotaJugador.addEventListener('click', seleccionarMascotaJugador);
 
+    let seccionbotonreiniciar = document.getElementById('seccion-reiniciar');
+    seccionbotonreiniciar.style.display = 'block';
+    
 		let botonFuego = document.getElementById('boton-fuego');
     botonFuego.addEventListener('click', ataqueFuego);
 
@@ -308,8 +311,17 @@ function reiniciarJuego() {
 	let botonMascotaJugador = document.getElementById('boton-mascota');
 	botonMascotaJugador.disabled = false;
 
+	let seccionReiniciar = document.getElementById('reiniciar');
+	seccionReiniciar.style.display = 'none';
+
+	let seccionSeleccionarAtaque = document.getElementById('seleccionar-ataque');
+	seccionSeleccionarAtaque.style.display = 'none';
+
+
 	cambiarEstadoBotones(true);
 }
+
+
 
 function ataqueFuego() {
 	ataqueJugador = 'FUEGO';

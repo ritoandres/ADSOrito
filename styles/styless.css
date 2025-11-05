@@ -1,0 +1,25 @@
+/*.titulo {
+  color: #333;
+  width: 310px;
+  height: auto;
+ background-color: hsl(0, 100%, 54%);
+}   
+
+label {
+ background-color: tomato;
+}
+
+input {
+    background-color: rgb(28, 122, 204);
+}
+
+button {
+    background-color: lightgreen;
+}*/
+
+.titulo {
+  color: #ca1010;
+  width: 310px;
+  height: auto;
+ background-color: hsl(240, 100%, 50%);
+}
